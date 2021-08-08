@@ -3,20 +3,20 @@ This is the next step after the [External Grading setup guide](https://github.co
 
 **Note**: This guide is only to be used to create basic External Grading Python questions. Not meant to replace the [official documentation](https://prairielearn.readthedocs.io/en/latest/python-grader/)
 
-**Double Note**: At any point in this guide, if you feel lost or just need some visualization to get a firm grasp of things. My first ever External Question: [fillinRobotInGrid question](https://github.com/ace-lab/pl-ecc-csci7/tree/Knguyen/questions/python/fillinRobotInGrid) should give you an example of what things would look like. I included many comments to help you on your journey so I hope you will stay till the end ?? . 
+**Double Note**: At any point in this guide, if you feel lost or just need some visualization to get a firm grasp of things. My first ever External Question: [fillinRobotInGrid question](https://github.com/ace-lab/pl-ecc-csci7/tree/Knguyen/questions/python/fillinRobotInGrid) should give you an example of what things would look like. I included many comments to help you on your journey so I hope you will stay till the end 🥺 . 
 
 ## Purposes
-- When grading the student's Python code, PrairieLearn's Python Autograder will be needed. It will take quite a while to set it up and even more just to have Python Autograder grades your questions correctly ?? .
+- When grading the student's Python code, PrairieLearn's Python Autograder will be needed. It will take quite a while to set it up and even more just to have Python Autograder grades your questions correctly 😩 .
 - The docs for Python Autograder offer everything. However, most of them are quite extensive and will most likely not be used in this guide. For any information that this guide doesn't have, you can visit the [Python Autograder PrarieLearn documentation page](https://prairielearn.readthedocs.io/en/latest/python-grader/).
 
 ## Background
 Creating an External Question, especially a complicated one will easily double your workload for that question. Not only that you will have to write and test out your question like you normally do, with Python external questions you will have to worry about tests cases and feedbacks given to students' code to say the least. 
 
-**Therefore, make sure that once you decide to create a Python External Grading question, you seriously want to do it ??.**
+**Therefore, make sure that once you decide to create a Python External Grading question, you seriously want to do it 💯.**
 
-On the good side, I think if you mastered using the Python Autograder, you can boast that you're able to make questions that pl-ucb-csci10 couldn't have made ?? (I tried to find some External Questions when I first met this obstacle in their repo, I couldn't find any example questions that utilize the Python Autograder). You will also be able to use all the question elements available in PrairieLearn to your liking.
+On the good side, I think if you mastered using the Python Autograder, you can boast that you're able to make questions that pl-ucb-csci10 couldn't have made 😂 (I tried to find some External Questions when I first met this obstacle in their repo, I couldn't find any example questions that utilize the Python Autograder). You will also be able to use all the question elements available in PrairieLearn to your liking.
 
-With that out of the way, let's get cracking ??.
+With that out of the way, let's get cracking 🧠.
 
 ## Prerequisite
 Make sure that your info.json is properly set up for the language you planned to use (this step should be good if you follow my guide on [setting up info.json for External Questions for Python](https://github.com/ace-lab/pl-ecc-csci7/wiki/External-Grading#python))
@@ -27,7 +27,7 @@ Make sure that your info.json is properly set up for the language you planned to
 
 This is a **SUPER USEFUL CHART** that will help greatly in figuring out the flow of creating tests code running against the students' Python code. It lays out how data will be separated, which will be allowed for the students to use, and which will be used in our tests.
 
-**WARNING**: The data in the chart is **NOT INHERITABLE**. What I mean is that the data `names_for_user` will **NOT** be available to the `test.py` at the final stage. **ONLY** `names_from_user` will be accessible in `test.py` ?? 
+**WARNING**: The data in the chart is **NOT INHERITABLE**. What I mean is that the data `names_for_user` will **NOT** be available to the `test.py` at the final stage. **ONLY** `names_from_user` will be accessible in `test.py` 🧐 
 
 ### tests/
 First, you will need to create a folder called `tests` inside your question folder. The folder hierarchy will closely resemble the following:
@@ -43,7 +43,7 @@ First, you will need to create a folder called `tests` inside your question fold
 |            -- test.py          # testing code
 |           |-- ...         # Some extra files
 ```
-The folder structure above is an example of the External Grading question "addVector". If you want a more explicit view of the folder structure, check out my ?? [fillinRobotInGrid question](https://github.com/ace-lab/pl-ecc-csci7/tree/Knguyen/questions/python/fillinRobotInGrid) (totally not a plug ?? )
+The folder structure above is an example of the External Grading question "addVector". If you want a more explicit view of the folder structure, check out my 👉 [fillinRobotInGrid question](https://github.com/ace-lab/pl-ecc-csci7/tree/Knguyen/questions/python/fillinRobotInGrid) (totally not a plug 👀 )
 #### Requirements:
 There are **at least** 3 files that you will always need exist in your `/tests` folder for Python Autograding to work:
 |Files |Description |
@@ -53,12 +53,12 @@ There are **at least** 3 files that you will always need exist in your `/tests` 
 |test.py| This will run after everything is done processing. It will test the student-submitted codes against test cases created by the question author.|
 
 ## The Real Deal - Default Files
-At this point, there's no turning back. I expect you to already have the question panel to display and you have a good idea of what you want the student to type in the code window (or code submission). If you have reached this point without being swayed from pursuing the External Grading path yet, pat yourself on the back ??. Afterward, get some coffee ? or water because we going to dive in deep.
+At this point, there's no turning back. I expect you to already have the question panel to display and you have a good idea of what you want the student to type in the code window (or code submission). If you have reached this point without being swayed from pursuing the External Grading path yet, pat yourself on the back 👏. Afterward, get some coffee ☕ or water because we going to dive in deep.
 
-### `question.html` ?? 
+### `question.html` 📋 
 This is a file outside of the `tests/` folder, it's something that you should have already to get your question to display properly. I won't be talking about the `<pl-question-panel>` part because it will widely vary between questions and doesn't do anything with the External Grading process. What's important it's any `<pl-xxx>` element that has an external grading option for them.
 
-Since there is a lot of `pl-element`, I will be mainly focused on `<pl-file-editor>` since I think that will be what most people use to grade students' codes ??. For other `pl-element`, I sincerely apologize but you will have to dig into them yourself in the [documenation page](https://prairielearn.readthedocs.io/en/latest/elements/). Just find any element that allows external grading as an option.
+Since there is a lot of `pl-element`, I will be mainly focused on `<pl-file-editor>` since I think that will be what most people use to grade students' codes 🤔. For other `pl-element`, I sincerely apologize but you will have to dig into them yourself in the [documenation page](https://prairielearn.readthedocs.io/en/latest/elements/). Just find any element that allows external grading as an option.
 
 An example of what could be:
 ```html
@@ -72,7 +72,7 @@ An example of what could be:
   <pl-file-preview></pl-file-preview>       <!-- Display the submitted student code -->
 </pl-submission-panel>
 ```
-- The option `file-name="user_code.py"` determines the *title of Bootstrap coding card*. It represents the name of the python file where the student's code will be stored inside. You can change it **BUT** ?? you must also [add another variable in `test.py`](#change-the-file-name-option-in-questionhtml)
+- The option `file-name="user_code.py"` determines the *title of Bootstrap coding card*. It represents the name of the python file where the student's code will be stored inside. You can change it **BUT** ⚠️ you must also [add another variable in `test.py`](#change-the-file-name-option-in-questionhtml)
 - There are more options for the `<pl-file-editor>` in the [docs](https://prairielearn.readthedocs.io/en/latest/elements/#pl-file-editor-element) that allow you to change the card background color, syntax highlighting, and more that could potentially help your students.
 
 #### **NOTE**: You can also put lines of code between the `<pl-file-editor> {{code_here}} </pl-file-editor>` to have them display code inside the card beforehand.
@@ -88,24 +88,24 @@ def fib(n):
 ![example of <pl-file-editor>](https://prairielearn.readthedocs.io/en/latest/elements/pl-file-editor.png)
 
 
-OK! We have passed the first part, let's move onto another level ?? 
+OK! We have passed the first part, let's move onto another level 👍 
 
 
 ***
 
-### `server.py` ?? 
+### `server.py` ⚙️ 
 This will be the last default file we touch on before moving toward the new files needed in the `tests/` folder.
 
 **NOTE:** Throughout the course of creating and fixing our tests, we may have to revisit `server.py` a lot of times so have it open on the side would be a wise choice.
 
-Works involving with the `server.py` will be either extremely easy or extremely exhausting ?? depends on how good a job you did in figuring out two things:
+Works involving with the `server.py` will be either extremely easy or extremely exhausting 😔 depends on how good a job you did in figuring out two things:
 |data['params']| Description|
 |--------------|:-----------:|
 |names_for_user| Data that will be given to the students to use|
 |names_from_user| Data that will be needed from the students and available in `test.py`|
 
 If you look at the flow chart at the beginning of the guide, you can see that the student will be expected to use `names_for_user` to produce `names_from_user`.
-#### WARNING: *ONCE AGAIN* The data in the chart is **NOT INHERITABLE**. This forces you to plan what data you should test and what data you should give ??. This problem caused me many days and should be something that you keep in mind moving forward.
+#### WARNING: *ONCE AGAIN* The data in the chart is **NOT INHERITABLE**. This forces you to plan what data you should test and what data you should give 😨. This problem caused me many days and should be something that you keep in mind moving forward.
 
 - #### Data for students (`names_for_user`) - Only accessible in student's code
     These are variables, functions, or any objects that the students could assign, call or do whatever they want in their coding environment. The reason for this is to provide the students with predefined functions or variables for them to work with.
@@ -120,7 +120,7 @@ def generate(data):
     ]
 ```
  
-Don't include too much data for the student to access, only just enough so that they cannot pull any fast one ?? 
+Don't include too much data for the student to access, only just enough so that they cannot pull any fast one 😈 
 **NOTE:** Be warned that if the object you allow the student to access requires any extra data (e.g. a global variable to read), then you also need to include said data into the `names_for_user` list.
 
 - #### Data from students (`names_from_user`) - Only accessible in `test.py`
@@ -146,15 +146,15 @@ def generate(data):
 
 ##### <u>Extra</u>: There's a PrairieLearn's HTML Element called [`pl-external-grader-variables`](https://prairielearn.readthedocs.io/en/latest/elements/#pl-external-grader-variables-element) you can used to display the `names_for_user` and/or `names_from_user` onto the question panel. It will display a table with all the "names", "description" and "type" values for the students. However, I **highly recommend** avoiding using these features unless you're sure that the students won't be able to take advantage of knowing all these data.
 
-That marked the final steps of what we needed to do that involve our default files ??. Now that we have declared which data is available to students and which is available to our tests, we will now move on to CREATE THOSE DATA ?? 
+That marked the final steps of what we needed to do that involve our default files 😌. Now that we have declared which data is available to students and which is available to our tests, we will now move on to CREATE THOSE DATA 🤩 
 
 ## The Real Deal - `tests/` Files
-This is where you will create the foundation for your tests. Once again I am **highly advise** you to have another tab open with just the [flowchart at the beginning of the guide](https://github.com/ace-lab/pl-ecc-csci7/wiki/Python-Autograding/#overview). It will be immensely helpful throughout our times here ?? 
+This is where you will create the foundation for your tests. Once again I am **highly advise** you to have another tab open with just the [flowchart at the beginning of the guide](https://github.com/ace-lab/pl-ecc-csci7/wiki/Python-Autograding/#overview). It will be immensely helpful throughout our times here 🥛 
 
-### `tests/setup_code.py` ??? 
+### `tests/setup_code.py` 🖥️ 
 This file will be run ONCE before the student's answer and the reference answer (`ans.py`). Here you will create those objects that will be available for students to use.
 
-? **<u>IMPORTANT POINT:</u>** Different from what you may perceive of the flowchart, the data from `setup_code.py` is actually split into two **COPIES**. In the first copy, Any data that are in the dictionary `data["params"]["names_for_user"]` will be given to the student's code. For the other copy, **ALL** of its' data will be given to the reference answer (`ans.py`)
+⭐ **<u>IMPORTANT POINT:</u>** Different from what you may perceive of the flowchart, the data from `setup_code.py` is actually split into two **COPIES**. In the first copy, Any data that are in the dictionary `data["params"]["names_for_user"]` will be given to the student's code. For the other copy, **ALL** of its' data will be given to the reference answer (`ans.py`)
 
 **NOTE:** Only `setup_code.py` and `test.py` have access to the `data` dictionary from `server.py`. If you want to use any values in the `data` dictionary either in the students' code or any other files in the `tests/` folder, you have to assign the value in your `data` dictionary to a variable.
 
@@ -191,10 +191,10 @@ server_end = data["params"]["ending"]
 
 ***
 
-### `tests/ans.py` ?? 
-This file will act as an "*example answer*" from the question you given to the student. **IT'S PERFECTLY OK TO HAVE THIS FILE BE EMPTY IF YOU DON'T WANT TO** ??. In many cases, you will test your "reference answer" against the student's answer in `test.py`. But it's also totally valid to test the student's answer using something else.
+### `tests/ans.py` 🥇 
+This file will act as an "*example answer*" from the question you given to the student. **IT'S PERFECTLY OK TO HAVE THIS FILE BE EMPTY IF YOU DON'T WANT TO** 😄. In many cases, you will test your "reference answer" against the student's answer in `test.py`. But it's also totally valid to test the student's answer using something else.
 
-`ans.py` gets **EVERY** object (variables, functions, etc) from `setup_code.py`, including any data that is given to the students. Therefore, you can make a quick **perfect answer** to test against your student's submitted answer ??. I'll let you think why that would be the case.
+`ans.py` gets **EVERY** object (variables, functions, etc) from `setup_code.py`, including any data that is given to the students. Therefore, you can make a quick **perfect answer** to test against your student's submitted answer 😮. I'll let you think why that would be the case.
 
 ###### I haven't tested not including `ans.py` inside the `tests/` folder but I usually still left it in just in case there's any side effect.
 
@@ -210,8 +210,8 @@ def fib(n):      # The student's Fibonacci function will be tested against this 
 
 ***
 
-### `tests/test.py` ?? 
-Here it is, one of the most confusing and frustrating parts of our Python Autograding journey, the final stage, and probably where you will keep returning to find errors. Your last struggle ? 
+### `tests/test.py` 🚨 
+Here it is, one of the most confusing and frustrating parts of our Python Autograding journey, the final stage, and probably where you will keep returning to find errors. Your last struggle ✊ 
 
 Here is where you will grade the students and report feedbacks for the students or debugging purposes. To make a `test.py`, you first need to know about the `self` object:
 |Name| Description|
@@ -247,8 +247,8 @@ class Test(PLTestCase):
 # Yes Plot Grading
 # class Test(PLTestCaseWithPlot):     # Substitute with the other class if your question use Plot
 ```
-###### No need to worry if your compiler yells at you for `import` non-existence library. Those libraries will be included automatically by PrairieLearn when run. One sad thing about it is that we won't be able to use Intellisense to see each function the library offers, maybe in the future I will be able to find out there's a way we can have that ??.
-The template uses classes and decorators (@) in Python. If you want to learn more you can look into the docs about it. The template I provided should work for your case 99% of the time though I hope ?? 
+###### No need to worry if your compiler yells at you for `import` non-existence library. Those libraries will be included automatically by PrairieLearn when run. One sad thing about it is that we won't be able to use Intellisense to see each function the library offers, maybe in the future I will be able to find out there's a way we can have that 😅.
+The template uses classes and decorators (@) in Python. If you want to learn more you can look into the docs about it. The template I provided should work for your case 99% of the time though I hope 😃 
 
 - The `Feedback` library contains many Python functions that you should use to test the student's answers. I will not be able to list all of them, you should totally check the [Code Feedback section in the Python Grader docs](https://prairielearn.readthedocs.io/en/latest/python-grader/sphinx-docs/) to learn about all of them.
 
@@ -305,9 +305,9 @@ class Test(PLTestCase):
 
 ***
 ## Conclusion
-**YOU DID IT** ?? ?? ?? ??, you now know everything that I can say about PrairieLearn Python External Grading questions. It was a long and challenging journey but now you have been armed with another great tool to create questions for students.
+**YOU DID IT** 🥳 🥳 🥳 🎉, you now know everything that I can say about PrairieLearn Python External Grading questions. It was a long and challenging journey but now you have been armed with another great tool to create questions for students.
 
-To encourage more participation in the External Grading rabbit hole, I will create and maintain a list of your External Question (if you want to put it here) ??. Thank you for your time with me. If there's any External Grading problem or questions you want me to look at, please feel free to contact me on Slack (or just email me using my GitHub emails ?? )
+To encourage more participation in the External Grading rabbit hole, I will create and maintain a list of your External Question (if you want to put it here) 😉. Thank you for your time with me. If there's any External Grading problem or questions you want me to look at, please feel free to contact me on Slack (or just email me using my GitHub emails 👀 )
 
 
 ## Extra
@@ -319,7 +319,7 @@ There are two optional files you can add inside the `tests/` folder:
 |leading_code.py| The code in this file will be run **before** setup_code.py. It will be appended **ABOVE (or before)** the student's code before grading inside test.py |
 |trailing_code.py| The code in this file will be run **after** setup_code.py. It will be appended **BELOW (or after)** the student's code before grading inside test.py |
 
-?? Using the above two files, you can modify the behavior of the student's code. Example: The usage of the `leading_code.py` in my [Robot Question](https://github.com/ace-lab/pl-ecc-csci7/blob/1c9a802bcf24b072017f1aa4e8ff04d8442e0812/questions/python/fillinRobotInGrid/tests/leading_code.py)
+💭 Using the above two files, you can modify the behavior of the student's code. Example: The usage of the `leading_code.py` in my [Robot Question](https://github.com/ace-lab/pl-ecc-csci7/blob/1c9a802bcf24b072017f1aa4e8ff04d8442e0812/questions/python/fillinRobotInGrid/tests/leading_code.py)
 - `tests/leading_code.py`
 ```python
 ... # More code above
@@ -354,13 +354,13 @@ def MoveXTimes(x) -> int:
         except:
             raise ValueError("Moved outside the board")
 ```
-?? I created those two functions inside `leading_code.py`. As a result, those functions definitions will be appended on top of the student's code before grading. Therefore, when we run our test cases inside `test.py`, PrairieLearn won't complain about not having function `RightXTimes` and `MoveXTimes` defined.
+☝️ I created those two functions inside `leading_code.py`. As a result, those functions definitions will be appended on top of the student's code before grading. Therefore, when we run our test cases inside `test.py`, PrairieLearn won't complain about not having function `RightXTimes` and `MoveXTimes` defined.
 
 I also put RightXTimes and MoveXTimes into `names_for_user` so the student can access those functions in their code. **THIS STEP IS REQUIRED**
 
-~~I found the Leading and Trailing code to be niche and only useful in the case I had. If anyone feels that there are other uses for Trailing code and Leading code please do tell me ??~~
+~~I found the Leading and Trailing code to be niche and only useful in the case I had. If anyone feels that there are other uses for Trailing code and Leading code please do tell me 👍~~
 
-#### Additional Python packages usage ?? (thanks to Audrey Lin for the info)
+#### Additional Python packages usage 🥳 (thanks to Audrey Lin for the info)
 Another use for `leading_code.py` is to import custom python packages that you want the student to use. 
 
 **AT THE TIME OF WRITING THE WIKI**, these packages are already included in the PrairieLearn and do NOT need to do any extra steps to use them:
@@ -395,7 +395,7 @@ text-unidecode==1.3
 statsmodels==0.12.2
 openpyxl==3.0.7
 ```
-?? **BEFORE YOU DO ANY EXTRA STEPS TO GET THE PACKAGE YOU NEED INTO PRAIRIELEARN**, check out the [latest list of packages inside PrairieLearn](https://github.com/PrairieLearn/PrairieLearn/blob/master/images/plbase/python-requirements.txt)
+⚠️ **BEFORE YOU DO ANY EXTRA STEPS TO GET THE PACKAGE YOU NEED INTO PRAIRIELEARN**, check out the [latest list of packages inside PrairieLearn](https://github.com/PrairieLearn/PrairieLearn/blob/master/images/plbase/python-requirements.txt)
 
 If you want to get additional packages into Python Autograding (e.g. datascience package), you must use these commands when starting up PrairieLearn
 - In your terminal:
@@ -414,7 +414,7 @@ import numpy as np
 
 
 ### Change the `file-name` option in `question.html`
-###### Credit to Audrey Lin and Tyler Chen to give me more information about `question.html` ?? 
+###### Credit to Audrey Lin and Tyler Chen to give me more information about `question.html` 💯 
 When you change the file name in the `<pl-file-editor> option. You also need to add a variable called `student_code_file` in the *Test* class inside the `test.py` file.
 
 - As an example, here's [Tyler Chen's question](https://github.com/ace-lab/pl-ecc-csci8/tree/4df13d3a781cab33471f3bf62fd4a19a401f45b0/questions/Modules1-5/FinalExamQ19/FinalExamQ19.3):
@@ -429,7 +429,7 @@ def compute_letter_grades(avg_score):
 <!-- More code below -->
 ```
 
-?? Here's what you have to add in `test.py`
+🔢 Here's what you have to add in `test.py`
 - Tyler Chen's `test.py`
 ```python
 from pl_helpers import name, points, not_repeated
