@@ -20,7 +20,7 @@ Attribute | Type | Default | Description
 #### Details
 
 Special Syntax | Description
---- | --- | --- | ---
+--- | ---
 `!BLANK` | When rendered, this will show as a blank for the student to fill in.
 `#0given` | When rendered, this will line of code will have **0** indents and will be **given** to the student (put in the solution panel). If no **#** is provided, that line of code will not be placed in the solution panel
 
