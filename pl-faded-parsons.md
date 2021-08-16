@@ -1,4 +1,4 @@
-# `pl-faded-parsons` element
+### `pl-faded-parsons` element
 
 Create and display modified parsons elements (with blanks and distraction answers).
 
