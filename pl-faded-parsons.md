@@ -4,10 +4,11 @@ Create and display modified parsons elements (with blanks and distraction answer
 
 #### Sample element
 
+![](images/fpp.png)
+
 ```html
 <pl-faded-parsons>def add(a, b): #0given
 return !BLANK
-
 </pl-faded-parsons>
 ```
 
@@ -29,10 +30,12 @@ Special Syntax | Description
 - [adding numbers (very simple)](https://github.com/ace-lab/pl-ucb-faded-parsons/tree/grading/questions/adding)
 - [compute_poly (more complicated)](https://github.com/ace-lab/pl-ucb-faded-parsons/blob/master/questions/compute_poly)
 
+#### Set up
+- [Setting up pl-faded-parsons element](https://github.com/stanleyko2004/external-grading-info/blob/master/pl-faded-parsons-detailed-guide.md)
+
 #### See also
 
 - [`pl-question-panel` for displaying the question prompt.](https://github.com/PrairieLearn/PrairieLearn/blob/master/docs/elements.md#pl-question-panel-element)
 - [`pl-submission-panel` for changing how a submitted answer is displayed.](https://github.com/PrairieLearn/PrairieLearn/blob/master/docs/elements.md#pl-submission-panel-element)
 - [`pl-answer-panel` for displaying the question's solution.](https://github.com/PrairieLearn/PrairieLearn/blob/master/docs/elements.md#pl-answer-panel-element)
 - [`pl-external-grader-results` for showing the results from an externally graded code question.](https://github.com/PrairieLearn/PrairieLearn/blob/master/docs/elements.md#pl-external-grader-results-element)
-- [more details on setting up pl-faded-parsons element](https://github.com/stanleyko2004/external-grading-info/blob/master/pl-faded-parsons-detailed-guide.md)
